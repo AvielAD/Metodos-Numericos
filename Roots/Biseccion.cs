@@ -43,7 +43,7 @@ namespace Roots
                 fb = funcion(ValStartb);
                 fpm = funcion(pm);
 
-                //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm);
+                //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm); saludos
                 string[] IterationVals = new string[7];
 
                 IterationVals[0] = Convert.ToString(it);

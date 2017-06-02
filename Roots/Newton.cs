@@ -23,48 +23,61 @@ namespace Roots
 
         public LinkedList<string[]> solucion()
         {
-            double pm;
             int it = 0;
-
+            double x = ValStarta;
+            double aux=0;
+            double fx=0;
+            double dfx=0;
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
+            string[] IterationVals = new string[6];
+
+            IterationVals[0] = Convert.ToString(it);
+            IterationVals[1] = Convert.ToString(aux);
+            IterationVals[2] = Convert.ToString(fx);
+            IterationVals[3] = Convert.ToString(dfx);
+            IterationVals[4] = Convert.ToString(x);
+            IterationVals[5] = Convert.ToString(aux - x);
+            Resultado.AddLast(IterationVals);
+            it++;
             do
             {
-                pm = (ValStarta - funcion(ValStarta)) / funcion_derivate(ValStarta);
+                aux = x;
 
-                string[] IterationVals = new string[7];
+
+                fx = Math.Round(funcion(this.Expresion, x), 7);
+                dfx = Math.Round(funcion(this.Derivate, x), 7);
+
+
+                x = Math.Round(x - (fx / dfx), 7);
+
+                IterationVals = new string[6];
 
                 IterationVals[0] = Convert.ToString(it);
-
-                IterationVals[1] = Convert.ToString(ValStarta);
-
+                IterationVals[1] = Convert.ToString(aux);
+                IterationVals[2] = Convert.ToString(fx);
+                IterationVals[3] = Convert.ToString(dfx);
+                IterationVals[4] = Convert.ToString(x);
+                IterationVals[5] = Convert.ToString(aux - x);
                 Resultado.AddLast(IterationVals);
 
-                ValStarta = pm;
-
                 it++;
-            } while (it <= Iteration && (pm - ValStarta) < Tolerance);
 
-            Root = pm;
+            } while (it <= Iteration && Math.Abs(aux-x) > Tolerance);
+
+            Root = x;
 
             return Resultado;
         }
 
-        public double funcion(double x)
+        public double funcion(string exp, double x)
         {
             ExpressionParser evaluador = new ExpressionParser();
             evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(this.Expresion);
+            double resultado = evaluador.Parse(exp);
             return Math.Round(resultado, 7);
         }
 
-        public double funcion_derivate(double x)
-        {
-            ExpressionParser evaluador = new ExpressionParser();
-            evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(this.Expresion);
-            return Math.Round(resultado, 7);
-        }
     }
 }

@@ -29,16 +29,18 @@ namespace VistaBiseccion
             {
                 Expresion = textBox1.Text,
                 Derivate = textBox2.Text,
-                ValStarta = Convert.ToDouble(textBox3.Text),
+                
                 Iteration = Convert.ToInt32(textBox4.Text),
                 Tolerance = Convert.ToDouble(textBox5.Text)
             };
+
+            newton.ValStarta = newton.funcion(textBox3.Text,0);
 
             var resultado = newton.solucion();
 
             foreach(var item in resultado)
             {
-                dataGridView1.Rows.Add(item[0], item[1], item[2]);
+                dataGridView1.Rows.Add(item[0], item[1], item[2], item[3], item[4], item[5]);
             }
             textBox6.Text = Convert.ToString(newton.Root);
 

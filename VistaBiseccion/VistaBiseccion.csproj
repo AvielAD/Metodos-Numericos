@@ -58,12 +58,6 @@
     <Compile Include="Biseccion.Designer.cs">
       <DependentUpon>Biseccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ejemplo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ejemplo.Designer.cs">
-      <DependentUpon>ejemplo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Newton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +74,6 @@
     </Compile>
     <EmbeddedResource Include="Biseccion.resx">
       <DependentUpon>Biseccion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ejemplo.resx">
-      <DependentUpon>ejemplo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Newton.resx">
       <DependentUpon>Newton.cs</DependentUpon>

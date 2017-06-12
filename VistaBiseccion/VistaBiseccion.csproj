@@ -58,6 +58,12 @@
     <Compile Include="Biseccion.Designer.cs">
       <DependentUpon>Biseccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ejemplo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ejemplo.Designer.cs">
+      <DependentUpon>ejemplo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Newton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,8 +72,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Secant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secant.Designer.cs">
+      <DependentUpon>Secant.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Biseccion.resx">
       <DependentUpon>Biseccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ejemplo.resx">
+      <DependentUpon>ejemplo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Newton.resx">
       <DependentUpon>Newton.cs</DependentUpon>
@@ -81,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Secant.resx">
+      <DependentUpon>Secant.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

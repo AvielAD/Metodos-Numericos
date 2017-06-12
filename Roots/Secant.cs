@@ -7,59 +7,55 @@ using info.lundin.math;
 
 namespace Roots
 {
-    public class Newton
+    class Secant
     {
         public double ValStarta { get; set; }
+        public double ValStartb { get; set; }
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
         public string Derivate { get; set; }
         public double Root { get; set; }
 
-        public Newton()
+        public Secant()
         {
 
         }
 
         public LinkedList<string[]> solucion()
         {
-            int it = 1;
-            double x = ValStarta;
-            double aux=0;
-            double fx=0;
-            double dfx=0;
-            double resta ;
+            int it = 2;
+            double qa = 0;
+            double qb = 0;
+            double p0 = ValStarta;
+            double p1 = ValStartb;
+            double P;
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
-            string[] IterationVals = new string[6];
-            
+            string[] IterationVals = new string[3];
+            qa = Math.Round(funcion(this.Expresion, p0), 7);
+            qb = Math.Round(funcion(this.Expresion, p1), 7);
             do
             {
-                aux = x;
 
-
-                fx = Math.Round(funcion(this.Expresion, x), 7);
-                dfx = Math.Round(funcion(this.Derivate, x), 7);
-
-
-                x = Math.Round(x - (fx / dfx), 7);
+                P = p1 - (qa*(p1 - p0)) / (qa - qb);
 
                 IterationVals = new string[6];
+                IterationVals[0] = Convert.ToString(Iteration);
+                IterationVals[1] = Convert.ToString(P);
+                IterationVals[2] = Convert.ToString(P-qa);
 
-                IterationVals[0] = Convert.ToString(it);
-                IterationVals[4] = Convert.ToString(x);
-                IterationVals[1] = Convert.ToString(aux);
-                IterationVals[2] = Convert.ToString(fx);
-                IterationVals[3] = Convert.ToString(dfx);
-                IterationVals[5] = Convert.ToString(aux - x);
                 Resultado.AddLast(IterationVals);
 
                 it++;
-                resta = aux - x;
-            } while (it <= Iteration && Math.Abs(aux-x) > Tolerance);
 
-            Root = x;
+                p0 = p1;
+                qb = qa;
+                p1 = P;
+                qb = Math.Round(funcion(this.Expresion, P), 7);
+
+            } while (it <= Iteration && Math.Abs(P-qa) > Tolerance);
 
             return Resultado;
         }
@@ -71,6 +67,5 @@ namespace Roots
             double resultado = evaluador.Parse(exp);
             return Math.Round(resultado, 7);
         }
-
     }
 }

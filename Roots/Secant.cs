@@ -7,14 +7,13 @@ using info.lundin.math;
 
 namespace Roots
 {
-    class Secant
+    public class Secant
     {
         public double ValStarta { get; set; }
         public double ValStartb { get; set; }
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
-        public string Derivate { get; set; }
         public double Root { get; set; }
 
         public Secant()
@@ -42,7 +41,7 @@ namespace Roots
                 P = p1 - (qa*(p1 - p0)) / (qa - qb);
 
                 IterationVals = new string[3];
-                IterationVals[0] = Convert.ToString(Iteration);
+                IterationVals[0] = Convert.ToString(it);
                 IterationVals[1] = Convert.ToString(P);
                 IterationVals[2] = Convert.ToString(P-qa);
 
@@ -54,7 +53,6 @@ namespace Roots
                 qb = qa;
                 p1 = P;
                 qb = Math.Round(funcion(this.Expresion, P), 7);
-
             } while (it <= Iteration && Math.Abs(P-qa) > Tolerance);
 
             return Resultado;

@@ -16,7 +16,7 @@ namespace VistaBiseccion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ejemplo());
+            Application.Run(new Secant());
         }
     }
 }

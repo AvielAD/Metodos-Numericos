@@ -51,6 +51,7 @@
     <Compile Include="BiseccionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NewtonTest.cs" />
+    <Compile Include="SecantTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

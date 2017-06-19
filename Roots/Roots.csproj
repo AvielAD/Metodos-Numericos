@@ -45,9 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biseccion.cs" />
+    <Compile Include="FalsePosition.cs" />
+    <Compile Include="Horner.cs" />
+    <Compile Include="Muller.cs" />
     <Compile Include="Newton.cs" />
+    <Compile Include="NewtonM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secant.cs" />
+    <Compile Include="Steffensen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

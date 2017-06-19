@@ -58,6 +58,12 @@
     <Compile Include="Biseccion.Designer.cs">
       <DependentUpon>Biseccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Falsa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Falsa.Designer.cs">
+      <DependentUpon>Falsa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Newton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="Biseccion.resx">
       <DependentUpon>Biseccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Falsa.resx">
+      <DependentUpon>Falsa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Newton.resx">
       <DependentUpon>Newton.cs</DependentUpon>

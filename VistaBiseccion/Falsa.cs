@@ -7,36 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Roots;
 namespace VistaBiseccion
 {
-    public partial class Secant : Form
+    public partial class Falsa : Form
     {
-        public Secant()
+        public Falsa()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            Roots.Secant secant = new Roots.Secant()
+            Roots.FalsePosition fall = new Roots.FalsePosition()
             {
-                Expresion = textBox6.Text,
-                ValStarta = textBox1.Text,
-                ValStartb = textBox2.Text,
-                Tolerance = Convert.ToDouble(textBox3.Text),
-                Iteration = Convert.ToInt32(textBox4.Text)
+                Expresion = textBox1.Text,
+                ValStarta = textBox3.Text,
+                ValStartb = textBox4.Text,
+                Tolerance = Convert.ToDouble(textBox2.Text),
+                Iteration = Convert.ToInt32(textBox5.Text)
+                
             };
-            LinkedList<string[]> Resultado = secant.solucion();
 
-            textBox5.Text = Convert.ToString(secant.Root);
+            LinkedList<string[]> Resultado = fall.solucion();
 
             foreach (var item in Resultado)
             {
                 dataGridView1.Rows.Add(item[0], item[1], item[2]);
             }
-
+            
+            textBox6.Text = fall.Root.ToString();
 
         }
 

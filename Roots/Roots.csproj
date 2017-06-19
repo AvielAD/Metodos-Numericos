@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biseccion.cs" />
+    <Compile Include="Evaluador.cs" />
     <Compile Include="FalsePosition.cs" />
     <Compile Include="Horner.cs" />
     <Compile Include="Muller.cs" />

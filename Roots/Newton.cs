@@ -9,7 +9,7 @@ namespace Roots
 {
     public class Newton
     {
-        public double ValStarta { get; set; }
+        public string ValStarta { get; set; }
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
@@ -24,11 +24,10 @@ namespace Roots
         public LinkedList<string[]> solucion()
         {
             int it = 1;
-            double x = ValStarta;
+            double x = this.funcion(ValStarta, 0);
             double aux=0;
             double fx=0;
             double dfx=0;
-            double resta ;
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
@@ -56,7 +55,7 @@ namespace Roots
                 Resultado.AddLast(IterationVals);
 
                 it++;
-                resta = aux - x;
+
             } while (it <= Iteration && Math.Abs(aux-x) > Tolerance);
 
             Root = x;

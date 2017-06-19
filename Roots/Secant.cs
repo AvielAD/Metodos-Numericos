@@ -9,8 +9,8 @@ namespace Roots
 {
     public class Secant
     {
-        public double ValStarta { get; set; }
-        public double ValStartb { get; set; }
+        public string ValStarta { get; set; }
+        public string ValStartb { get; set; }
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
@@ -26,9 +26,9 @@ namespace Roots
             int it = 2;
             double q0 = 0;
             double q1 = 0;
-            double p0 = ValStarta;
+            double p0 = this.funcion(ValStarta, 0);
             double P;
-            double p1 = ValStartb;
+            double p1 = this.funcion(ValStartb, 0);
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 

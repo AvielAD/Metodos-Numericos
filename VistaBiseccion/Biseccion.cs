@@ -22,8 +22,8 @@ namespace VistaBiseccion
         {
             Roots.Biseccion biseccion = new Roots.Biseccion() {
                 Expresion = this.textBox6.Text,
-                ValStarta = Convert.ToDouble(this.textBox1.Text),
-                ValStartb = Convert.ToDouble(this.textBox2.Text),
+                ValStarta1 = (this.textBox1.Text),
+                ValStartb1 = (this.textBox2.Text),
                 Tolerance = Convert.ToDouble(this.textBox3.Text),
                 Iteration = Convert.ToInt32(this.textBox4.Text)
             };

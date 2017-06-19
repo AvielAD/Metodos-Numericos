@@ -12,8 +12,8 @@ namespace Roots
     public class Biseccion
     {
 
-        public double ValStarta { get; set; }
-        public double ValStartb { get; set; }
+        public string ValStarta1 { get; set; }
+        public string ValStartb1 { get; set; }
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
@@ -27,6 +27,8 @@ namespace Roots
 
         public LinkedList<string[]> solucion()
         {
+            double ValStarta=funcion(ValStarta1, 0);
+            double ValStartb=funcion(ValStartb1, 0);
             double pm;
             double fa;
             double fb;
@@ -39,9 +41,9 @@ namespace Roots
             do
             {
                 pm = ValStarta +( (ValStartb - ValStarta) / 2);
-                fa = funcion(ValStarta);
-                fb = funcion(ValStartb);
-                fpm = funcion(pm);
+                fa = funcion(this.Expresion, ValStarta);
+                fb = funcion(this.Expresion, ValStartb);
+                fpm = funcion(this.Expresion, pm);
 
                 //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm); saludos
                 string[] IterationVals = new string[7];
@@ -77,11 +79,11 @@ namespace Roots
             return Resultado;
         }
 
-        public double funcion(double x)
+        public double funcion(string funcion, double x)
         {
             ExpressionParser evaluador = new ExpressionParser();
             evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(this.Expresion);
+            double resultado = evaluador.Parse(funcion);
             return Math.Round(resultado, 7);
         }
     }

@@ -15,16 +15,17 @@ namespace Roots
         public string Expresion { get; set; }
         public string Derivate { get; set; }
         public double Root { get; set; }
+        private Evaluador evaluator;
 
         public Newton()
         {
-
+            evaluator.Presition = 7;
         }
 
         public LinkedList<string[]> solucion()
         {
             int it = 1;
-            double x = this.funcion(ValStarta, 0);
+            double x = evaluator.EvalVar(ValStarta);
             double aux=0;
             double fx=0;
             double dfx=0;
@@ -37,15 +38,14 @@ namespace Roots
             {
                 aux = x;
 
-
-                fx = Math.Round(funcion(this.Expresion, x), 7);
-                dfx = Math.Round(funcion(this.Derivate, x), 7);
-
+                fx = evaluator.EvalFunction(Expresion, x);
+                dfx = evaluator.EvalFunction(Derivate, x);
 
                 x = Math.Round(x - (fx / dfx), 7);
 
                 IterationVals = new string[6];
 
+                //Falta clase para separar datos
                 IterationVals[0] = Convert.ToString(it);
                 IterationVals[4] = Convert.ToString(x);
                 IterationVals[1] = Convert.ToString(aux);
@@ -62,14 +62,5 @@ namespace Roots
 
             return Resultado;
         }
-
-        public double funcion(string exp, double x)
-        {
-            ExpressionParser evaluador = new ExpressionParser();
-            evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(exp);
-            return Math.Round(resultado, 7);
-        }
-
     }
 }

@@ -15,10 +15,11 @@ namespace Roots
         public int Iteration { get; set; }
         public string Expresion { get; set; }
         public double Root { get; set; }
+        private Evaluador evaluator;
 
         public Secant()
         {
-
+            evaluator.Presition = 7;
         }
 
         public LinkedList<string[]> solucion()
@@ -26,15 +27,15 @@ namespace Roots
             int it = 2;
             double q0 = 0;
             double q1 = 0;
-            double p0 = this.funcion(ValStarta, 0);
+            double p0 = evaluator.EvalVar(ValStarta);
             double P;
-            double p1 = this.funcion(ValStartb, 0);
+            double p1 = evaluator.EvalVar(ValStartb);
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
             string[] IterationVals = new string[3];
-            q0 = Math.Round(funcion(this.Expresion, p0), 7);
-            q1 = Math.Round(funcion(this.Expresion, p1), 7);
+            q0 = evaluator.EvalFunction(Expresion, p0);
+            q1 = evaluator.EvalFunction(Expresion, p1);
 
             do
             {
@@ -53,20 +54,13 @@ namespace Roots
                 p0 = p1;
                 q0 = q1;
                 p1 = P;
-                q1 = Math.Round(funcion(this.Expresion, P), 7);
+                q1 = evaluator.EvalFunction(Expresion, P);
+
             } while (it <= Iteration && Math.Abs(P-p1) < Tolerance);
 
             Root = P;
 
             return Resultado;
-        }
-
-        public double funcion(string exp, double x)
-        {
-            ExpressionParser evaluador = new ExpressionParser();
-            evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(exp);
-            return Math.Round(resultado, 7);
         }
     }
 }

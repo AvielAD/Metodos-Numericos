@@ -25,9 +25,9 @@ namespace Roots
 
         }
 
-        public double EvalVar(double val)
+        public double EvalVar(string val)
         {
-            return EvalFunction(val.ToString(), 0);
+            return EvalFunction(val, 0);
         }
     }
 }

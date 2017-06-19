@@ -72,14 +72,14 @@
             this.textBox1.Location = new System.Drawing.Point(320, 22);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(320, 59);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 4;
             // 
             // label3
             // 
@@ -92,10 +92,10 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(75, 59);
+            this.textBox3.Location = new System.Drawing.Point(70, 59);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.textBox3.TabIndex = 2;
             // 
             // label4
             // 
@@ -111,7 +111,7 @@
             this.textBox4.Location = new System.Drawing.Point(517, 22);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.textBox4.TabIndex = 5;
             // 
             // label5
             // 
@@ -127,14 +127,14 @@
             this.textBox5.Location = new System.Drawing.Point(517, 56);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 7;
+            this.textBox5.TabIndex = 8;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(652, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Calcular";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -144,7 +144,7 @@
             this.button2.Location = new System.Drawing.Point(652, 49);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -193,7 +193,7 @@
             this.textBox6.Location = new System.Drawing.Point(70, 22);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 14;
+            this.textBox6.TabIndex = 1;
             // 
             // Secant
             // 

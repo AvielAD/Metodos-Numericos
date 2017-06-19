@@ -24,36 +24,39 @@ namespace Roots
         public LinkedList<string[]> solucion()
         {
             int it = 2;
-            double qa = 0;
-            double qb = 0;
+            double q0 = 0;
+            double q1 = 0;
             double p0 = ValStarta;
-            double p1 = ValStartb;
             double P;
+            double p1 = ValStartb;
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
             string[] IterationVals = new string[3];
-            qa = Math.Round(funcion(this.Expresion, p0), 7);
-            qb = Math.Round(funcion(this.Expresion, p1), 7);
+            q0 = Math.Round(funcion(this.Expresion, p0), 7);
+            q1 = Math.Round(funcion(this.Expresion, p1), 7);
+
             do
             {
 
-                P = p1 - (qa*(p1 - p0)) / (qa - qb);
+                P = p1 - q1*(p1 - p0) / (q1 - q0);
 
                 IterationVals = new string[3];
                 IterationVals[0] = Convert.ToString(it);
                 IterationVals[1] = Convert.ToString(P);
-                IterationVals[2] = Convert.ToString(P-qa);
+                IterationVals[2] = Convert.ToString(Math.Abs(P-p1));
 
                 Resultado.AddLast(IterationVals);
 
                 it++;
 
                 p0 = p1;
-                qb = qa;
+                q0 = q1;
                 p1 = P;
-                qb = Math.Round(funcion(this.Expresion, P), 7);
-            } while (it <= Iteration && Math.Abs(P-qa) > Tolerance);
+                q1 = Math.Round(funcion(this.Expresion, P), 7);
+            } while (it <= Iteration && Math.Abs(P-p1) < Tolerance);
+
+            Root = P;
 
             return Resultado;
         }

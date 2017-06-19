@@ -30,6 +30,8 @@ namespace VistaBiseccion
             };
             LinkedList<string[]> Resultado = secant.solucion();
 
+            textBox5.Text = Convert.ToString(secant.Root);
+
             foreach (var item in Resultado)
             {
                 dataGridView1.Rows.Add(item[0], item[1], item[2]);

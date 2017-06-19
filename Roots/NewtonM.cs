@@ -13,6 +13,7 @@ namespace Roots
         public int Iteration { get; set; }
         public string Expresion { get; set; }
         public string Derivate { get; set; }
+        public string DerivateTwo { get; set; }
         public double Root { get; set; }
         private Evaluador evaluator;
 
@@ -28,6 +29,8 @@ namespace Roots
             double aux = 0;
             double fx = 0;
             double dfx = 0;
+            double ddfx = 0;
+
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 

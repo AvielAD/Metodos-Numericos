@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VistaBiseccion
+namespace VistaRoots
 {
     public partial class Secant : Form
     {

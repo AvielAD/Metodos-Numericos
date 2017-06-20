@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Roots;
 
-namespace VistaBiseccion
+namespace VistaRoots
 {
     public partial class Newton : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace VistaBiseccion
+﻿namespace VistaRoots
 {
     partial class Falsa
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roots", "Roots\Roots.csproj", "{80900B76-619A-4809-9725-D12D80CE2156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaBiseccion", "VistaBiseccion\VistaBiseccion.csproj", "{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaRoots", "VistaBiseccion\VistaRoots.csproj", "{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestRoots", "UnitTestRoots\UnitTestRoots.csproj", "{3879BCEA-350D-4079-AB6C-8932996E2E92}"
 EndProject

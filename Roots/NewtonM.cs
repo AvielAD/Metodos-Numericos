@@ -19,6 +19,7 @@ namespace Roots
 
         public NewtonM()
         {
+            evaluator = new Evaluador();
             evaluator.Presition = 7;
         }
 
@@ -34,7 +35,7 @@ namespace Roots
 
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
 
-            string[] IterationVals = new string[6];
+            string[] IterationVals = new string[3];
 
             do
             {
@@ -42,17 +43,15 @@ namespace Roots
                 
                 fx = evaluator.EvalFunction(Expresion, x);
                 dfx = evaluator.EvalFunction(Derivate, x);
-                
-                x = Math.Round(x - (fx / dfx), 7);
+                ddfx = evaluator.EvalFunction(DerivateTwo, x);
 
-                IterationVals = new string[6];
+                x = Math.Round(x - fx * dfx / (( dfx * dfx ) - ( dfx * ddfx)), 7);
+
+                IterationVals = new string[3];
 
                 IterationVals[0] = Convert.ToString(it);
-                IterationVals[4] = Convert.ToString(x);
-                IterationVals[1] = Convert.ToString(aux);
-                IterationVals[2] = Convert.ToString(fx);
-                IterationVals[3] = Convert.ToString(dfx);
-                IterationVals[5] = Convert.ToString(aux - x);
+                IterationVals[1] = Convert.ToString(x);
+                IterationVals[2] = Convert.ToString(aux - x);
                 Resultado.AddLast(IterationVals);
 
                 it++;

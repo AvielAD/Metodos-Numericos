@@ -18,6 +18,7 @@ namespace Roots
 
         public FalsePosition()
         {
+            evaluator = new Evaluador();
             evaluator.Presition = 7;
         }
 

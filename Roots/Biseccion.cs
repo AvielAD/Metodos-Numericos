@@ -19,16 +19,18 @@ namespace Roots
         public string Expresion { get; set; }
         public string Derivate { get; set; }
         public double Root { get; set; }
+        private Evaluador evaluator;
 
         public Biseccion()
         {
-            
+            evaluator = new Evaluador();
+            evaluator.Presition = 7;
         }
 
         public LinkedList<string[]> solucion()
         {
-            double ValStarta=funcion(ValStarta1, 0);
-            double ValStartb=funcion(ValStartb1, 0);
+            double ValStarta=evaluator.EvalVar(ValStarta1);
+            double ValStartb=evaluator.EvalVar(ValStartb1);
             double pm;
             double fa;
             double fb;
@@ -41,9 +43,9 @@ namespace Roots
             do
             {
                 pm = ValStarta +( (ValStartb - ValStarta) / 2);
-                fa = funcion(this.Expresion, ValStarta);
-                fb = funcion(this.Expresion, ValStartb);
-                fpm = funcion(this.Expresion, pm);
+                fa = evaluator.EvalFunction(Expresion, ValStarta);
+                fb = evaluator.EvalFunction(Expresion, ValStartb);
+                fpm = evaluator.EvalFunction(Expresion, pm);
 
                 //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm); saludos
                 string[] IterationVals = new string[7];
@@ -77,14 +79,6 @@ namespace Roots
             Root = pm;
 
             return Resultado;
-        }
-
-        public double funcion(string funcion, double x)
-        {
-            ExpressionParser evaluador = new ExpressionParser();
-            evaluador.Values.Add("x", x);
-            double resultado = evaluador.Parse(funcion);
-            return Math.Round(resultado, 7);
         }
     }
 }

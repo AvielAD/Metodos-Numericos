@@ -19,6 +19,7 @@ namespace Roots
 
         public Newton()
         {
+            evaluator = new Evaluador();
             evaluator.Presition = 7;
         }
 

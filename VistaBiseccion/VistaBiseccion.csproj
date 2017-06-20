@@ -70,6 +70,12 @@
     <Compile Include="Newton.Designer.cs">
       <DependentUpon>Newton.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewtonModified.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewtonModified.Designer.cs">
+      <DependentUpon>NewtonModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secant.cs">
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Newton.resx">
       <DependentUpon>Newton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewtonModified.resx">
+      <DependentUpon>NewtonModified.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

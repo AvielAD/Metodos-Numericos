@@ -19,6 +19,7 @@ namespace Roots
 
         public Secant()
         {
+            evaluator = new Evaluador();
             evaluator.Presition = 7;
         }
 

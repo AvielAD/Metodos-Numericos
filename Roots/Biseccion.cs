@@ -24,7 +24,7 @@ namespace Roots
         public Biseccion()
         {
             evaluator = new Evaluador();
-            evaluator.Presition = 7;
+            evaluator.Presition = 5;
         }
 
         public LinkedList<string[]> solucion()
@@ -34,22 +34,27 @@ namespace Roots
             double pm;
             double fa;
             double fb;
-            double fpm;
+            double fpm=1000;
             int it = 0;
 
             
             LinkedList<string[]> Resultado = new LinkedList<string[]>();
+            string[] IterationVals;
 
-            do
+            //pm = ((ValStartb + ValStarta) / 2);
+            //fa = evaluator.EvalFunction(Expresion, ValStarta);
+            //fb = evaluator.EvalFunction(Expresion, ValStartb);
+            //fpm = evaluator.EvalFunction(Expresion, pm);
+
+            do 
             {
-                pm = ValStarta +( (ValStartb - ValStarta) / 2);
+                pm = ( (ValStartb + ValStarta) / 2);
                 fa = evaluator.EvalFunction(Expresion, ValStarta);
                 fb = evaluator.EvalFunction(Expresion, ValStartb);
                 fpm = evaluator.EvalFunction(Expresion, pm);
 
                 //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm); saludos
-                string[] IterationVals = new string[7];
-
+                IterationVals = new string[7];
                 IterationVals[0] = Convert.ToString(it);
                 IterationVals[1] = Convert.ToString(ValStarta);
                 IterationVals[2] = Convert.ToString(ValStartb);
@@ -57,26 +62,22 @@ namespace Roots
                 IterationVals[4] = Convert.ToString(fa);
                 IterationVals[5] = Convert.ToString(fb);
                 IterationVals[6] = Convert.ToString(fpm);
-
                 Resultado.AddLast(IterationVals);
+
+
 
                 if (fpm * fa < 0)
                 {
                     ValStartb = pm;
                 }
-                else if(fpm * fb < 0)
+                else
                 {
                     ValStarta = pm;
                 }
-                else
-                {
-                    pm = -1;
-                    break;
-                }
-                it++;
-            } while (it <= Iteration && Tolerance < Math.Abs( ((ValStartb-ValStarta)/2) ));
 
-            Root = pm;
+                it++;
+
+            } while (Math.Abs(fpm) >= Tolerance && it < Iteration);
 
             return Resultado;
         }

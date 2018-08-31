@@ -35,7 +35,7 @@ namespace VistaRoots
             {
                 foreach (var item in Resultado)
                 {
-                    dataGridView1.Rows.Add(item[0], item[1], item[2], item[3], item[4], item[5], item[6]);
+                    dataGridView1.Rows.Add(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7]);
                 }
             }
             else
@@ -49,6 +49,11 @@ namespace VistaRoots
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

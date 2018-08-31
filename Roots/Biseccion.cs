@@ -54,7 +54,7 @@ namespace Roots
                 fpm = evaluator.EvalFunction(Expresion, pm);
 
                 //data.Rows.Add(it, ValStarta, ValStartb, pm, fa, fb, fpm); saludos
-                IterationVals = new string[7];
+                IterationVals = new string[8];
                 IterationVals[0] = Convert.ToString(it);
                 IterationVals[1] = Convert.ToString(ValStarta);
                 IterationVals[2] = Convert.ToString(ValStartb);
@@ -62,6 +62,8 @@ namespace Roots
                 IterationVals[4] = Convert.ToString(fa);
                 IterationVals[5] = Convert.ToString(fb);
                 IterationVals[6] = Convert.ToString(fpm);
+                IterationVals[7] = Convert.ToString(ValStartb-ValStarta);
+
                 Resultado.AddLast(IterationVals);
 
 
@@ -77,7 +79,7 @@ namespace Roots
 
                 it++;
 
-            } while (Math.Abs(fpm) >= Tolerance && it < Iteration);
+            } while (Math.Abs(ValStartb-ValStarta) >= Tolerance && it < Iteration);
 
             return Resultado;
         }

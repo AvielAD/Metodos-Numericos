@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:NumericalViews"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal">
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+            <Rectangle Height="100" Width="100" Margin="10" Fill="Orange"/>
+        </StackPanel>        
+    
+    </ScrollViewer>
+
 </Window>

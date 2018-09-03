@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roots", "Roots\Roots.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaRoots", "VistaBiseccion\VistaRoots.csproj", "{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestRoots", "UnitTestRoots\UnitTestRoots.csproj", "{3879BCEA-350D-4079-AB6C-8932996E2E92}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericalViews", "NumericalViews\NumericalViews.csproj", "{8C01CC1A-274E-4381-A2E0-CE3CA1DB9EE9}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BDD1D80-3F9A-4F2C-95E5-290D6474C70D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3879BCEA-350D-4079-AB6C-8932996E2E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3879BCEA-350D-4079-AB6C-8932996E2E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3879BCEA-350D-4079-AB6C-8932996E2E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3879BCEA-350D-4079-AB6C-8932996E2E92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C01CC1A-274E-4381-A2E0-CE3CA1DB9EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C01CC1A-274E-4381-A2E0-CE3CA1DB9EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C01CC1A-274E-4381-A2E0-CE3CA1DB9EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU

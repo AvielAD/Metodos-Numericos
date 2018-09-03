@@ -72,14 +72,21 @@ namespace Roots
                 {
                     ValStartb = pm;
                 }
-                else
+                else if(fpm * fb < 0)
                 {
                     ValStarta = pm;
+                }
+                else
+                {
+                    pm = -1;
+                    break;
                 }
 
                 it++;
 
             } while (Math.Abs(ValStartb-ValStarta) >= Tolerance && it < Iteration);
+
+            Root = pm;
 
             return Resultado;
         }

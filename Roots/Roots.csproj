@@ -47,6 +47,7 @@
     <Compile Include="Biseccion.cs" />
     <Compile Include="Evaluador.cs" />
     <Compile Include="FalsePosition.cs" />
+    <Compile Include="FixedPoint.cs" />
     <Compile Include="Horner.cs" />
     <Compile Include="Muller.cs" />
     <Compile Include="Newton.cs" />

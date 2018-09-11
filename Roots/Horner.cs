@@ -12,17 +12,27 @@ namespace Roots
         public string Pattern { get; set; } = "\b";
         public double Aprox { get; set; }
         public int Iterations { get; set; }
+        public double Tolerance { get; set; }
         public double [] Coeficientes { get; set; }
         public LinkedList<double []> Operations { get; set; }
         Evaluador Eval = new Evaluador();
 
-        public Horner(string Expression, double Aprox, int Iterations)
+        public Horner(string Expression, double Aprox)
+        {
+            Coeficientes = Eval.Coeficientes(Expression);
+            this.Aprox = Aprox;
+            Operations = new LinkedList<double[]>();
+
+        }
+
+        public Horner(string Expression, double Aprox, int Iterations, double Tolerance)
         {
             Coeficientes = Eval.Coeficientes(Expression);
             this.Aprox = Aprox;
             this.Iterations = Iterations;
             Operations = new LinkedList<double[]>();
-
+            this.Tolerance = Tolerance;
+            
         }
 
         public double HornerRes(double [] Coefs, double aprox)
@@ -55,15 +65,19 @@ namespace Roots
             return aprox - (P_Aprox/Q_Aprox);
         }
 
-        public double HornerMetod()
+        public double HornerMetod(double Tolerance,int Iterations)
         {
             int i = 0;
             double Aproximation = this.Aprox;
+            double Aproximation_Aux = 0;
+            this.Iterations = Iterations;
             do
             {
-               Aproximation = HornerRes(this.Coeficientes,Aproximation);
+                Aproximation_Aux = Aproximation;
+
+                Aproximation = HornerRes(Coeficientes,Aproximation);
                 i++;
-            } while (i<Iterations);
+            } while (i<Iterations && Math.Abs(Aproximation_Aux-Aproximation)>Tolerance);
 
             this.Root = Aproximation;
 

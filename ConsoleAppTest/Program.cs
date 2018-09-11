@@ -13,10 +13,11 @@ namespace ConsoleAppTest
         {
             string Coeficientes = "2 0 -3 3 -4";
             double Aproximacion = -2;
+            double Tolerancia = 0.00001;
             int Iteraciones = 5;
 
-            Horner h = new Horner(Coeficientes, Aproximacion, Iteraciones);
-            h.HornerMetod();
+            Horner h = new Horner(Coeficientes, Aproximacion);
+            h.HornerMetod(Tolerancia, Iteraciones);
 
             Console.Write("Coeficientes: ");
             foreach (var item in h.Coeficientes)

@@ -11,8 +11,11 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            string expre = "2 0 -3 3 -4";
-            Horner h = new Horner(expre, -2, 5);
+            string Coeficientes = "2 0 -3 3 -4";
+            double Aproximacion = -2;
+            int Iteraciones = 5;
+
+            Horner h = new Horner(Coeficientes, Aproximacion, Iteraciones);
             h.HornerMetod();
 
             Console.Write("Coeficientes: ");

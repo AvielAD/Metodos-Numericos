@@ -13,8 +13,8 @@ namespace ConsoleAppTest
         {
             string Coeficientes = "2 0 -3 3 -4";
             double Aproximacion = -2;
-            double Tolerancia = 0.00001;
-            int Iteraciones = 5;
+            double Tolerancia = 0.01;
+            int Iteraciones = 20;
 
             Horner h = new Horner(Coeficientes, Aproximacion);
             h.HornerMetod(Tolerancia, Iteraciones);

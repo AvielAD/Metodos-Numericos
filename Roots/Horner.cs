@@ -70,15 +70,17 @@ namespace Roots
             int i = 0;
             double Aproximation = this.Aprox;
             double Aproximation_Aux = 0;
+            double TolerancLimit = 0;
             this.Iterations = Iterations;
             do
             {
                 Aproximation_Aux = Aproximation;
 
                 Aproximation = HornerRes(Coeficientes,Aproximation);
+                TolerancLimit = Math.Abs(Aproximation - Aproximation_Aux);
                 i++;
-            } while (i<Iterations && Math.Abs(Aproximation_Aux-Aproximation)>Tolerance);
-
+            } while (TolerancLimit>Tolerance && i < Iterations);
+            Console.WriteLine("Tolerancia al final del ciclo: {0} Tolerancia Buscada: {1} Iteracion: {2}", TolerancLimit, this.Tolerance, i);
             this.Root = Aproximation;
 
             return Aproximation;

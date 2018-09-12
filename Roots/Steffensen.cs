@@ -12,55 +12,43 @@ namespace Roots
         public double Tolerance { get; set; }
         public int Iteration { get; set; }
         public string Expresion { get; set; }
-        public string Derivate { get; set; }
         public double Root { get; set; }
         private Evaluador evaluator;
+        public int Presition { get; set; }
 
-        public Steffensen()
+        public Steffensen(int Presition)
         {
             evaluator = new Evaluador();
             evaluator.Presition = 7;
+            this.Presition = Presition;
         }
 
-        public LinkedList<string[]> solucion()
+        public void Solucion()
         {
-            int it = 1;
-            double x = evaluator.EvalVar(ValStarta);
-            double aux = 0;
-            double fx = 0;
-            double dfx = 0;
-
-            LinkedList<string[]> Resultado = new LinkedList<string[]>();
-
-            string[] IterationVals = new string[6];
-
+            int it = 0;
+            double P = 0;
+            double P1 = 0;
+            double P2 = 0;
+            double P0 = Convert.ToDouble(ValStarta);
+            double ToleranceLimit = 0;
             do
             {
-                aux = x;
+                P1 = (evaluator.EvalFunction(Expresion, P0));
 
-                fx = evaluator.EvalFunction(Expresion, x);
-                dfx = evaluator.EvalFunction(Derivate, x);
+                P2 = (evaluator.EvalFunction(Expresion, P1));
 
-                x = Math.Round(x - (fx / dfx), 7);
+                P = (P0 - (((P1 - P0)*(P1 - P0))/ (P2 - (2 * P1) + P0)));
 
-                IterationVals = new string[6];
+                ToleranceLimit = Math.Abs(P-P0);
 
-                //Falta clase para separar datos
-                IterationVals[0] = Convert.ToString(it);
-                IterationVals[4] = Convert.ToString(x);
-                IterationVals[1] = Convert.ToString(aux);
-                IterationVals[2] = Convert.ToString(fx);
-                IterationVals[3] = Convert.ToString(dfx);
-                IterationVals[5] = Convert.ToString(aux - x);
-                Resultado.AddLast(IterationVals);
-
+                Console.Write("Iteracion: {0} Valores: \tP={1} \tP0={2} \tP1={3} \tP2={4} ", it, P, P0, P1, P2);
+                Console.WriteLine("Tolerancia Limit= {0}",ToleranceLimit);
                 it++;
+                P0 = P;
+            } while (it < Iteration && ToleranceLimit > this.Tolerance);
 
-            } while (it <= Iteration && Math.Abs(aux - x) > Tolerance);
+            Root = P; 
 
-            Root = x;
-
-            return Resultado;
         }
 
     }

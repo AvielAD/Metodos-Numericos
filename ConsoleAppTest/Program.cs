@@ -11,21 +11,20 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            string Coeficientes = "2 0 -3 3 -4";
-            double Aproximacion = -2;
-            double Tolerancia = 0.00001;
+            string Expression = "x^3-x-1";
+            string Aproximacion = "1";
+            double Tolerancia = 0.0001;
             int Iteraciones = 5;
 
-            Horner h = new Horner(Coeficientes, Aproximacion);
-            h.HornerMetod(Tolerancia, Iteraciones);
+            Steffensen st = new Steffensen(5);
 
-            Console.Write("Coeficientes: ");
-            foreach (var item in h.Coeficientes)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Respuesta a raiz aproximada: {0}", h.Root);
+            st.Expresion = Expression;
+            st.ValStarta = Aproximacion;
+            st.Iteration = Iteraciones;
+            st.Tolerance = Tolerancia;
+            st.Solucion();
+
+            Console.WriteLine("Resultado Root aproximada: {0}",st.Root);
             Console.ReadKey();
 
         }

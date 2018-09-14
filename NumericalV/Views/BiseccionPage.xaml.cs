@@ -1,4 +1,5 @@
 ﻿using NumericalV.Models;
+using NumericalV.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,6 +40,11 @@ namespace NumericalV
         private void BackMainClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void GraphClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GraphicsPage));
         }
     }
 

@@ -75,10 +75,7 @@
 
                 </DataTemplate>
             </ListView.ItemTemplate>
-
-
-
         </ListView>
-        
+        <Button Click="GraphClick" Content="Graph" HorizontalAlignment="Right" Grid.Row="3" Height="80" Width="200"/>
     </Grid>
 </Page>

@@ -11,10 +11,10 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            string Expression = "x^3-x-1";
-            string Aproximacion = "1";
-            double Tolerancia = 0.0001;
-            int Iteraciones = 5;
+            string Expression = "x-(x^3-25)/(3x^2)";
+            string Aproximacion = "2.5";
+            double Tolerancia = 0.000001;
+            int Iteraciones = 20;
 
             Steffensen st = new Steffensen(5);
 

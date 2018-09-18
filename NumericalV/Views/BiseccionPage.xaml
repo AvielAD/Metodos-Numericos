@@ -2,11 +2,11 @@
     x:Class="NumericalV.BiseccionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:NumericalV"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:data="using:NumericalV.Models"
+    xmlns:local="using:NumericalV"
+    xmlns:Data="using:NumericalV.Models"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
@@ -16,66 +16,204 @@
         </Style>
 
     </Page.Resources>
-    
+
     <Grid>
-       
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="12*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
-        
-        <Button Width="90" Height="80"
-                Click="BackMainClick"
-                Content="Back" HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Background="Blue"
-                Foreground="White"/>
-        
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Style="{StaticResource Cell}" Text="Iteration"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value a"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value b"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value pm"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value fa"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value fb"/>
-            <TextBlock Style="{StaticResource Cell}" Text="Value fpm"/>
-            <TextBlock Style="{StaticResource Cell}" Text="| a - b |"/>
-        </StackPanel>
-        
-        <ListView Name="TableTest" Grid.Row="2">
-              <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:Biseccion">
-                    
-                    <Grid>
-                        
-                        <TextBox Margin="10" Text="{Binding Iteration}"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1">
+            <ListView Name="BiseccionTable" 
+                  
+                  Margin="10,10,10,10" 
+                  SelectionMode="Single"
+                  ShowsScrollingPlaceholders="True">
 
-                        <TextBox Text="{Binding Value_a}"/>
 
-                        <TextBox Text="{Binding Value_b}"/>
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Background="Green" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBox Text="{Binding Value_pm}"/>
 
-                        <TextBox Text="{Binding Value_fa}"/>
+                            <TextBlock Grid.Column="0" Text="Iteration" Foreground="White"/>
+                            <TextBlock Grid.Column="1" Text="Value: a" Foreground="White"/>
+                            <TextBlock Grid.Column="2" Text="Value: b" Foreground="White"/>
+                            <TextBlock Grid.Column="3" Text="Value: pm" Foreground="White"/>
+                            <TextBlock Grid.Column="4" Text="Value: f(a)" Foreground="White"/>
+                            <TextBlock Grid.Column="5" Text="Value: f(b)" Foreground="White"/>
+                            <TextBlock Grid.Column="6" Text="Value: f(pm)" Foreground="White"/>
+                            <TextBlock Grid.Column="7" Text="Value: | a - b |" Foreground="White"/>
 
-                        <TextBox Text="{Binding Value_fb}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
 
-                        <TextBox Text="{Binding Value_fpm}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate  x:DataType="Data:Biseccion">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBox Text="{Binding Value_fabs}"/>
+                            <TextBlock 
+                            Text="{Binding Iteration}"
+                            Grid.Column="0"
+                            Width="80" Height="30"
+                            />
 
-                    </Grid>     
-                        
+                            <TextBlock 
+                            Text="{Binding Value_a}"
+                            Grid.Column="1"
+                            Width="100" Height="30"
+                            />
 
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Click="GraphClick" Content="Graph" HorizontalAlignment="Right" Grid.Row="3" Height="80" Width="200"/>
+                            <TextBlock 
+                            Text="{Binding Value_b}"
+                            Grid.Column="2"
+                            Width="100" Height="30"
+                            />
+
+                            <TextBlock 
+                            Text="{Binding Value_pm}"
+                            Grid.Column="3"
+                            Width="100" Height="30"
+                            />
+
+                            <TextBlock 
+                            Text="{Binding Value_fa}"
+                            Grid.Column="4"
+                            Width="100" Height="30"
+                            />
+
+                            <TextBlock 
+                            Text="{Binding Value_fb}"
+                            Grid.Column="5"
+                            Width="100" Height="30"
+                            />
+
+                            <TextBlock 
+                            Text="{Binding Value_fpm}"
+                            Grid.Column="6"
+                            Width="100" Height="30"
+                            />
+
+                            <TextBlock 
+                            Text="{Binding Value_fabs}"
+                            Grid.Column="7"
+                            Width="100" Height="30"
+                            />
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </ScrollViewer>
+       
+        <ScrollViewer Grid.Column="1" Grid.Row="2" HorizontalScrollBarVisibility="Auto">
+            <StackPanel  Orientation="Horizontal">
+                <StackPanel>
+                    <TextBox Name="ExpresionVar"
+                 PlaceholderText="Expresion"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"></TextBox>
+
+                    <TextBox Name="Iterations"
+                 PlaceholderText="Iteraciones Maximas"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Name="ValaVar"
+                 PlaceholderText="Valor Inicial a"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"></TextBox>
+
+                    <TextBox Name="ValbVar"
+                 PlaceholderText="Valor Inicial b"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Name="ToleranceVar"
+                 PlaceholderText="Valor de la Tolerancia"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"></TextBox>
+
+                    <Grid Background="Green">
+                        <TextBlock Name="RootVar"
+                 TextAlignment="Center"
+                 Width="250" Height="50"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Text="Raíz Aproximada"
+                                   Foreground="White"
+                 ></TextBlock>
+                    </Grid>
+
+                </StackPanel>
+
+                <Button Content="Calcular"
+                    Height="100" Width="100"
+                    VerticalAlignment="Top"
+                        Background="Purple"
+                        Foreground="White"
+                        Click="CalcButtonClick"></Button>
+
+                <Button Content="Grafica"
+                    Height="100" Width="100"
+                    VerticalAlignment="Top"
+                        Background="Purple"
+                        Foreground="White"
+                        Click="GraphClick"
+                        ></Button>
+
+                <Button Content="Limpiar"
+                    Height="100" Width="100"
+                    VerticalAlignment="Top"
+                        Background="Purple"
+                        Foreground="White"
+                        Click="CleanButtonClick"></Button>
+
+            </StackPanel>
+        </ScrollViewer>
+
+
     </Grid>
 </Page>

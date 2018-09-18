@@ -46,7 +46,9 @@
                 </GeometryGroup>
             </Path.Data>
         </Path>
-
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock HorizontalAlignment="Center" Name="greeting"/>
+        </StackPanel>
 
     </Grid>
 </Page>

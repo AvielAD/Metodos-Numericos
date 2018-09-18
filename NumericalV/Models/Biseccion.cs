@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NumericalV.Models
 {
-    class Biseccion
+    public class Biseccion
     {
         public string Iteration { get; set; }
         public string Value_a { get; set; }
@@ -17,17 +17,16 @@ namespace NumericalV.Models
         public string Value_fpm { get; set; }
         public string Value_fabs { get; set; }
 
-        public Biseccion(string Iteration, string Value_a, string Value_b, string Value_pm,
-            string Value_fa, string Value_fb, string Value_fpm, string Value_fabs)
+        public Biseccion(string It, string a, string b, string pm, string fa, string fb, string fpm, string fabs)
         {
-            this.Iteration = Iteration;
-            this.Value_a = Value_a;
-            this.Value_b = Value_b;
-            this.Value_pm = Value_pm;
-            this.Value_fa =Value_fa;
-            this.Value_fb = Value_fb;
-            this.Value_pm = Value_pm;
-            this.Value_fabs = Value_fabs;
+            Iteration = It;
+            Value_a = a;
+            Value_b = b;
+            Value_pm = pm;
+            Value_fa = fa;
+            Value_fb = fb;
+            Value_fpm = fpm;
+            Value_fabs = fabs;
         }
     }
 }

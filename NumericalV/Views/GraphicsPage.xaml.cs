@@ -31,5 +31,19 @@ namespace NumericalV.Views
         {
             this.Frame.Navigate(typeof(BiseccionPage));
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                var b =  (NumericalV.Models.AlgoritmParams) e.Parameter;
+                    greeting.Text += b.Expression;
+            }
+            else
+            {
+                greeting.Text = "No se paso correctamente el parametro";
+            }
+            base.OnNavigatedTo(e);
+        }
     }
 }

@@ -25,16 +25,11 @@ namespace NumericalV
     /// </summary>
     public sealed partial class BiseccionPage : Page
     {
+        public AlgoritmParams Esend { get; set; }
+
         public BiseccionPage()
         {
             this.InitializeComponent();
-            ObservableCollection<Biseccion> _pets = new ObservableCollection<Biseccion>();
-            _pets.Add(new Biseccion("Gato", "Animal", "Desc", "Desc", "Desc", "Desc", "Desc", "Desc"));
-            _pets.Add(new Biseccion("Perro", "Animal", "Desc", "Desc", "Desc", "Desc", "Desc", "Desc"));
-            _pets.Add(new Biseccion("Pavo", "Animal", "Desc", "Desc", "Desc", "Desc", "Desc", "Desc"));
-            _pets.Add(new Biseccion("Pitbull", "Animal", "Desc", "Desc", "Desc", "Desc", "Desc", "Desc"));
-
-            this.TableTest.ItemsSource = _pets;
         }
 
         private void BackMainClick(object sender, RoutedEventArgs e)
@@ -44,7 +39,40 @@ namespace NumericalV
 
         private void GraphClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(GraphicsPage));
+            if (Esend!=null)
+            {
+                this.Frame.Navigate(typeof(GraphicsPage), Esend);
+            }
+        }
+
+        private void CalcButtonClick(object sender, RoutedEventArgs e)
+        {
+            RootsClassLibrary.Biseccion b = new RootsClassLibrary.Biseccion();
+            b.Expresion = this.ExpresionVar.Text;
+            b.ValStarta1 = this.ValaVar.Text;
+            b.ValStartb1 = this.ValbVar.Text;
+            b.Iteration = Convert.ToInt32(this.Iterations.Text);
+            b.Tolerance = Convert.ToDouble(this.ToleranceVar.Text);
+
+            var items = b.Solucion();
+
+            ObservableCollection<Biseccion> bt = new ObservableCollection<Biseccion>();
+
+            foreach (var item in items)
+            {
+                bt.Add(new Biseccion(item[0],item[1], item[2], item[3], item[4], item[5], item[6], item[7]));
+            }
+
+            BiseccionTable.ItemsSource = bt;
+            Esend = new AlgoritmParams(b.Expresion, Convert.ToDouble(b.ValStarta1), Convert.ToDouble(b.ValStartb1));
+
+            this.RootVar.Text = b.Root.ToString();
+        }
+
+
+        private void CleanButtonClick(object sender, RoutedEventArgs e)
+        {
+            BiseccionTable.ItemsSource=null;
         }
     }
 

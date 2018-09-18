@@ -16,7 +16,7 @@ namespace VistaRoots
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VistaBiseccion.FixedPoint());
+            Application.Run(new NewtonModified());
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Roots
                 dfx = evaluator.EvalFunction(Derivate, x);
                 ddfx = evaluator.EvalFunction(DerivateTwo, x);
 
-                x = Math.Round(x - fx * dfx / (( dfx * dfx ) - ( dfx * ddfx)), 7);
+                x = x - (fx * dfx) / ( dfx * dfx  -  fx * ddfx);
 
                 IterationVals = new string[3];
 

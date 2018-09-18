@@ -11,9 +11,9 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            string Coeficientes = "2 0 -3 3 -4";
-            double Aproximacion = -2;
-            double Tolerancia = 0.01;
+            string Coeficientes = "1 0 0 -25";
+            double Aproximacion = 2.5;
+            double Tolerancia = 0.000001;
             int Iteraciones = 20;
 
             Horner h = new Horner(Coeficientes, Aproximacion);
